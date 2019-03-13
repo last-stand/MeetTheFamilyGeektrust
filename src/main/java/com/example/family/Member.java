@@ -53,7 +53,7 @@ public class Member {
             System.out.println(CHILD_ADDED);
         }
         else {
-            System.out.println(CHILD_NOT_ADDED);
+            throw new InvalidChildAdditionException(CHILD_NOT_ADDED);
         }
     }
 
