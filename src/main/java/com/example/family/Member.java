@@ -4,8 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Member {
-    public static final String CHILD_ADDED = "CHILD_ADDITION_FAILED";
-    public static final String CHILD_NOT_ADDED = "CHILD_ADDITION_SUCCEEDED";
+    public static final String CHILD_ADDED = "CHILD_ADDITION_SUCCEEDED";
+    public static final String CHILD_NOT_ADDED = "CHILD_ADDITION_FAILED";
     private String name;
     private Gender gender;
     private Member mother;

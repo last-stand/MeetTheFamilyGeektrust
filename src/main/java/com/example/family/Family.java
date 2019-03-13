@@ -1,6 +1,8 @@
 package com.example.family;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Family {
     private HashMap<String, Member> familyMembers;
@@ -9,11 +11,15 @@ public class Family {
         this.familyMembers = familyMembers;
     }
 
-    public Member addNewMember(Member mother, String name, Gender gender) {
+    public void addChild(Member mother, String name, Gender gender) {
         Member newMember = new Member(name, gender);
         mother.addChild(newMember);
         familyMembers.put(name, newMember);
-        return familyMembers.get(name);
+    }
+
+    public Set<Member> getRelationship(String name, String relation){
+        Set<Member> relatives = new HashSet<>();
+        return relatives;
     }
 
     public Member get(String name) {
