@@ -8,6 +8,8 @@ import static org.junit.Assert.*;
 
 public class FamilyTest {
 
+    private  Family family;
+
     @Test
     public void addChildToFamilyShouldAddNewMemberToFamilyThroughMother() {
         Member chitra = new Member("Chitra", Gender.FEMALE);
@@ -16,7 +18,7 @@ public class FamilyTest {
         HashMap<String, Member> familyMembers = new HashMap<>();
         familyMembers.put("Chitra", chitra);
         familyMembers.put("Aras", aras);
-        Family family = new Family(familyMembers);
+        family = new Family(familyMembers);
 
         family.addChildToFamily("Chitra", "Jnki", Gender.FEMALE);
         family.addChildToFamily("Chitra", "Ahit", Gender.MALE);
@@ -34,7 +36,7 @@ public class FamilyTest {
         HashMap<String, Member> familyMembers = new HashMap<>();
         familyMembers.put("Chitra", chitra);
         familyMembers.put("Aras", aras);
-        Family family = new Family(familyMembers);
+        family = new Family(familyMembers);
 
         family.addChildToFamily("Aras", "Jnki", Gender.FEMALE);
         family.addChildToFamily("Aras", "Ahit", Gender.MALE);

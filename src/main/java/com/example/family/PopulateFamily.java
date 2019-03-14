@@ -22,7 +22,7 @@ public class PopulateFamily {
         Member yodhan = new Member("Yodhan", Gender.MALE);
         Member lika = new Member("Lika", Gender.FEMALE);
         Member vila = new Member("Vila", Gender.FEMALE);
-        Member chika = new Member("chika", Gender.FEMALE);
+        Member chika = new Member("Chika", Gender.FEMALE);
         Member chitra = new Member("Chitra", Gender.FEMALE);
         Member jnki = new Member("Jnki", Gender.FEMALE);
         Member ahit = new Member("Ahit", Gender.MALE);
@@ -54,7 +54,7 @@ public class PopulateFamily {
         familyMembers.put("Yodhan", yodhan);
         familyMembers.put("Lika", lika);
         familyMembers.put("Vila", vila);
-        familyMembers.put("chika", chika);
+        familyMembers.put("Chika", chika);
         familyMembers.put("Chitra", chitra);
         familyMembers.put("Jnki", jnki);
         familyMembers.put("Ahit", ahit);

@@ -6,6 +6,7 @@ import java.util.Set;
 public class Member {
     public static final String CHILD_ADDED = "CHILD_ADDITION_SUCCEEDED";
     public static final String CHILD_NOT_ADDED = "CHILD_ADDITION_FAILED";
+    private static Member unknown = new Member("Unknown");
     private String name;
     private Gender gender;
     private Member mother;
@@ -13,9 +14,16 @@ public class Member {
     private Member spouse;
     private Set<Member> children = new HashSet<>();
 
+    private Member(String name) {
+        this.name = name;
+    }
+
     public Member(String name, Gender gender) {
         this.name = name;
         this.gender = gender;
+        this.mother = unknown;
+        this.father = unknown;
+        this.spouse = unknown;
     }
 
     public String getName() {
