@@ -1,14 +1,12 @@
 apply plugin: 'java'
 
 group = 'com.example'
-version = '1.0'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 jar {
     baseName = 'geektrust'
-    version =  1.0
     manifest {
         attributes 'Main-Class' : 'com.example.family.MeetTheFamily'
     }
