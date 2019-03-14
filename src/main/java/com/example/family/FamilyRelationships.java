@@ -138,17 +138,21 @@ public class FamilyRelationships {
         return getSistersOf(mother);
     }
 
+    private String getSiblingsSpouses(String siblings) {
+        StringBuilder sb = new StringBuilder();
+        List<String> siblingList = Arrays.asList(siblings.split("\\s+"));
+        for (String sibling : siblingList) {
+            String spouse = family.get(sibling).getSpouse().getName();
+            if (spouse != "Unknown")
+                sb.append(spouse + " ");
+        }
+        return sb.toString().trim();
+    }
+
     private String getSiblingsWives(Member member) {
         String brothers = getBrothersOf(member);
         if(isMemberPresent(brothers)) {
-            StringBuilder sb = new StringBuilder();
-            List<String> brotherList = Arrays.asList(brothers.split("\\s+"));
-            for (String brother : brotherList) {
-                String wife = family.get(brother).getSpouse().getName();
-                if (wife != "Unknown")
-                    sb.append(wife + " ");
-            }
-            return sb.toString().trim();
+            return getSiblingsSpouses(brothers);
         }
         return brothers;
     }
@@ -156,14 +160,7 @@ public class FamilyRelationships {
     private String getSiblingsHusbands(Member member) {
         String sisters = getSistersOf(member);
         if(isMemberPresent(sisters)) {
-            StringBuilder sb = new StringBuilder();
-            List<String> sisterList = Arrays.asList(sisters.split("\\s+"));
-            for (String sister : sisterList) {
-                String wife = family.get(sister).getSpouse().getName();
-                if (wife != "Unknown")
-                    sb.append(wife + " ");
-            }
-            return sb.toString().trim();
+            return getSiblingsSpouses(sisters);
         }
         return sisters;
     }
