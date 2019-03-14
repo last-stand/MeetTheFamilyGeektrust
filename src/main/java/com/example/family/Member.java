@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Member {
-    public static final String CHILD_ADDED = "CHILD_ADDITION_SUCCEEDED";
     public static final String CHILD_NOT_ADDED = "CHILD_ADDITION_FAILED";
     private static Member unknown = new Member("Unknown");
     private String name;
@@ -58,7 +57,6 @@ public class Member {
             this.spouse.children.add(member);
             member.mother = this;
             member.father = this.spouse;
-            System.out.println(CHILD_ADDED);
         }
         else {
             throw new InvalidChildAdditionException(CHILD_NOT_ADDED);

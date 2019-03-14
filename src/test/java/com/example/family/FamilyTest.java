@@ -2,9 +2,11 @@ package com.example.family;
 
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.HashMap;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class FamilyTest {
 
@@ -41,7 +43,24 @@ public class FamilyTest {
         family.addChildToFamily("Aras", "Jnki", Gender.FEMALE);
         family.addChildToFamily("Aras", "Ahit", Gender.MALE);
 
-
         assertEquals(2, family.getSize());
+    }
+
+    @Test
+    public void addChildToFamilyShouldReturnPersonNotFoundIfPersonNotExist(){
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        Member chitra = new Member("Chitra", Gender.FEMALE);
+        Member aras = new Member("Aras", Gender.MALE);
+        chitra.setSpouse(aras);
+        HashMap<String, Member> familyMembers = new HashMap<>();
+        familyMembers.put("Chitra", chitra);
+        familyMembers.put("Aras", aras);
+        family = new Family(familyMembers);
+
+        family.addChildToFamily("Anna", "Mina", Gender.FEMALE);
+
+        assertEquals("PERSON_NOT_FOUND\n", outContent.toString());
+
     }
 }

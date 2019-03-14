@@ -1,31 +1,30 @@
 package com.example.family;
 
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
 
 public class Family {
 
+    private static String PERSON_NOT_FOUND = "PERSON_NOT_FOUND";
+    private static final String CHILD_ADDED = "CHILD_ADDITION_SUCCEEDED";
     private HashMap<String, Member> familyMembers;
 
     public Family(HashMap<String, Member> familyMembers) {
         this.familyMembers = familyMembers;
     }
 
-    public void addChildToFamily(String mother, String name, Gender gender) {
+    public void addChildToFamily(String motherName, String name, Gender gender) {
         try {
             Member newMember = new Member(name, gender);
-            this.familyMembers.get(mother).addChild(newMember);
+            Member mother = this.familyMembers.get(motherName);
+            if(mother == null)
+                throw new InvalidChildAdditionException(PERSON_NOT_FOUND);
+            mother.addChild(newMember);
             this.familyMembers.put(name, newMember);
+            System.out.println(CHILD_ADDED);
         }
         catch (InvalidChildAdditionException e) {
             System.out.println(e.getMessage());
         }
-    }
-
-    public Set<Member> getRelationship(String name, String relation){
-        Set<Member> relatives = new HashSet<>();
-        return relatives;
     }
 
     public Member get(String name) {

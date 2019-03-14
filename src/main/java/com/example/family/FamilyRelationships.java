@@ -1,6 +1,7 @@
 package com.example.family;
 
-import javax.xml.soap.Node;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 
 public class FamilyRelationships {
@@ -77,12 +78,15 @@ public class FamilyRelationships {
         for (Member sibling: siblings) {
                 sb.append(sibling.getName() + " ");
         }
-        if(sb.length() > name.length() + 1)
+        if(sb.length() > name.length() + 1) {
             return sb.toString().replace(name, "").trim();
+        }
         return NONE;
     }
 
     private String getBrothersOf(Member member) {
+        if(member.getName().equals("Unknown"))
+            return NONE;
         String mom = member.getMother().getName();
         if(mom.equals("Unknown"))
             return NONE;
@@ -92,6 +96,8 @@ public class FamilyRelationships {
     }
 
     private String getSistersOf(Member member) {
+        if(member.getName().equals("Unknown"))
+            return NONE;
         String mom = member.getMother().getName();
         if(mom.equals("Unknown"))
             return NONE;
@@ -131,4 +137,73 @@ public class FamilyRelationships {
         Member mother = member.getMother();
         return getSistersOf(mother);
     }
+
+    private String getSiblingsWives(Member member) {
+        String brothers = getBrothersOf(member);
+        if(isMemberPresent(brothers)) {
+            StringBuilder sb = new StringBuilder();
+            List<String> brotherList = Arrays.asList(brothers.split("\\s+"));
+            for (String brother : brotherList) {
+                String wife = family.get(brother).getSpouse().getName();
+                if (wife != "Unknown")
+                    sb.append(wife + " ");
+            }
+            return sb.toString().trim();
+        }
+        return brothers;
+    }
+
+    private String getSiblingsHusbands(Member member) {
+        String sisters = getSistersOf(member);
+        if(isMemberPresent(sisters)) {
+            StringBuilder sb = new StringBuilder();
+            List<String> sisterList = Arrays.asList(sisters.split("\\s+"));
+            for (String sister : sisterList) {
+                String wife = family.get(sister).getSpouse().getName();
+                if (wife != "Unknown")
+                    sb.append(wife + " ");
+            }
+            return sb.toString().trim();
+        }
+        return sisters;
+    }
+
+    public String getSisterInLaw(String name) {
+        Member member = family.get(name);
+        if(!isMemberExist(member))
+            return PERSON_NOT_FOUND;
+        StringBuilder sbSisterInLaws = new StringBuilder();
+        String sisterOfSpouse = getSistersOf(member.getSpouse());
+        String siblingsWives = getSiblingsWives(member);
+        if(isMemberPresent(sisterOfSpouse)) {
+            sbSisterInLaws.append(sisterOfSpouse);
+        }
+        if(isMemberPresent(siblingsWives)){
+            sbSisterInLaws.append(" " + siblingsWives);
+        }
+        String sisterInLaw = sbSisterInLaws.toString().trim();
+        return sisterInLaw.length() > 0 ? sisterInLaw : NONE;
+    }
+
+    private boolean isMemberPresent(String name) {
+        return !name.equals(NONE) && !name.equals(PERSON_NOT_FOUND);
+    }
+
+    public String getBrotherInLaw(String name) {
+        Member member = family.get(name);
+        if(!isMemberExist(member))
+            return PERSON_NOT_FOUND;
+        StringBuilder sbBrotherInLaws = new StringBuilder();
+        String brotherOfSpouse = getBrothersOf(member.getSpouse());
+        String siblingsHusbands = getSiblingsHusbands(member);
+        if(isMemberPresent(brotherOfSpouse)) {
+            sbBrotherInLaws.append(brotherOfSpouse);
+        }
+        if(isMemberPresent(siblingsHusbands)){
+            sbBrotherInLaws.append(" " + siblingsHusbands);
+        }
+        String sisterInLaw = sbBrotherInLaws.toString().trim();
+        return sisterInLaw.length() > 0 ? sisterInLaw : NONE;
+    }
+
 }

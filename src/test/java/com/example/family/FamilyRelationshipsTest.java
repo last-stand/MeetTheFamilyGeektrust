@@ -227,4 +227,73 @@ public class FamilyRelationshipsTest {
         assertEquals("PERSON_NOT_FOUND", maternalAunts);
     }
 
+    @Test
+    public void getSisterInLawSholudReturnSistersOfSpouse() {
+        String sisterInLaw = relationships.getSisterInLaw("Jaya");
+        List<String> sisterInLawsList = Arrays.asList(sisterInLaw.split("\\s+"));
+
+        assertTrue(sisterInLawsList.contains("Tritha"));
+        assertEquals(1, sisterInLawsList.size());
+    }
+
+    @Test
+    public void getSisterInLawSholudReturnWivesOfSiblings() {
+        String sisterInLaw = relationships.getSisterInLaw("Satya");
+        List<String> sisterInLawsList = Arrays.asList(sisterInLaw.split("\\s+"));
+
+        assertTrue(sisterInLawsList.contains("Amba"));
+        assertTrue(sisterInLawsList.contains("Lika"));
+        assertTrue(sisterInLawsList.contains("Chitra"));
+        assertEquals(3, sisterInLawsList.size());
+    }
+
+    @Test
+    public void getSisterInLawSholudReturnNoneIfSpouseHasNoSisterOrWivesOfSiblings() {
+        String sisterInLaw = relationships.getSisterInLaw("Vyan");
+
+        assertEquals("NONE", sisterInLaw);
+    }
+
+    @Test
+    public void getSisterInLawSholudReturnPersonNotFoundIfPersonNotExist() {
+        String sisterInLaw = relationships.getSisterInLaw("John");
+
+        assertEquals("PERSON_NOT_FOUND", sisterInLaw);
+    }
+
+    @Test
+    public void getBrotherInLawSholudReturnBrothersOfSpouse() {
+        String brotherInLaw = relationships.getBrotherInLaw("Vyan");
+        List<String> brotherInLawsList = Arrays.asList(brotherInLaw.split("\\s+"));
+
+        assertTrue(brotherInLawsList.contains("Chit"));
+        assertTrue(brotherInLawsList.contains("Ish"));
+        assertTrue(brotherInLawsList.contains("Vich"));
+        assertTrue(brotherInLawsList.contains("Aras"));
+        assertEquals(4, brotherInLawsList.size());
+    }
+
+    @Test
+    public void getBrotherInLawSholudReturnHusbandsOfSiblings() {
+        String brotherInLaw = relationships.getBrotherInLaw("Tritha");
+        List<String> brotherInLawsList = Arrays.asList(brotherInLaw.split("\\s+"));
+
+        assertTrue(brotherInLawsList.contains("Jaya"));
+        assertEquals(1, brotherInLawsList.size());
+    }
+
+    @Test
+    public void getBrotherInLawSholudReturnNoneIfSpouseHasNoBrotherOrHusbandsOfSiblings() {
+        String brotherInLaw = relationships.getBrotherInLaw("Jnki");
+
+        assertEquals("NONE", brotherInLaw);
+    }
+
+    @Test
+    public void getBrotherInLawSholudReturnPersonNotFoundIfPersonNotExist() {
+        String brotherInLaw = relationships.getBrotherInLaw("Sammy");
+
+        assertEquals("PERSON_NOT_FOUND", brotherInLaw);
+    }
+
 }

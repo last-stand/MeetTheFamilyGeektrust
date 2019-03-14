@@ -7,23 +7,17 @@ import java.util.Scanner;
 
 public class MeetTheFamily {
 
-    static void readFile(String filePath) {
+    public static void main(String[] args) {
+        HashMap<String, Member> familyMembers =  PopulateFamily.populateFamily();
+        Family royalFamily = new Family(familyMembers);
+        FunctionHandler functionHandler = new FunctionHandler(royalFamily);
         try {
-            Scanner scanner = new Scanner(new File(filePath));
+            Scanner scanner = new Scanner(new File(args[0]));
             while (scanner.hasNextLine()) {
-                System.out.println(scanner.nextLine());
+                functionHandler.execute(scanner.nextLine());
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-    }
-
-    public static void main(String[] args) {
-//        Scanner scanner = new Scanner(System.in);
-//        String filePath = scanner.nextLine();
-//        readFile(args[0]);
-//        readFile("/Users/jaiprak/workspace/geektrust/src/main/resources/example");
-        HashMap<String, Member> familyMembers =  PopulateFamily.populateFamily();
-        Family royalFamily = new Family(familyMembers);
     }
 }
