@@ -3,7 +3,7 @@ package com.example.family;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -11,7 +11,7 @@ import static org.junit.Assert.assertTrue;
 
 public class FamilyRelationshipsTest {
 
-    private HashMap<String, Member> familyMembers =  PopulateFamily.populateFamily();
+    private LinkedHashMap<String, Member> familyMembers =  PopulateFamily.populateFamily();
     Family family = new Family(familyMembers);
     private  FamilyRelationships relationships = new FamilyRelationships(family);
 
@@ -62,8 +62,8 @@ public class FamilyRelationshipsTest {
         String sons = relationships.getSon("Vyan");
         List<String> sonsList = Arrays.asList(sons.split("\\s+"));
 
-        assertTrue(sonsList.contains("Asva"));
-        assertTrue(sonsList.contains("Vyas"));
+        assertEquals(sonsList.get(0), "Asva");
+        assertEquals(sonsList.get(1), "Vyas");
         assertEquals(2, sonsList.size());
     }
 
@@ -86,8 +86,8 @@ public class FamilyRelationshipsTest {
         String daughters = relationships.getDaughter("Amba");
         List<String> daughtersList = Arrays.asList(daughters.split("\\s+"));
 
-        assertTrue(daughtersList.contains("Dritha"));
-        assertTrue(daughtersList.contains("Tritha"));
+        assertEquals(daughtersList.get(0), "Dritha");
+        assertEquals(daughtersList.get(1), "Tritha");
         assertEquals(2, daughtersList.size());
     }
 
@@ -110,8 +110,8 @@ public class FamilyRelationshipsTest {
         String siblings = relationships.getSiblings("Dritha");
         List<String> siblingsList = Arrays.asList(siblings.split("\\s+"));
 
-        assertTrue(siblingsList.contains("Tritha"));
-        assertTrue(siblingsList.contains("Vritha"));
+        assertEquals(siblingsList.get(0), "Tritha");
+        assertEquals(siblingsList.get(1), "Vritha");
         assertEquals(2, siblingsList.size());
     }
 
@@ -135,9 +135,9 @@ public class FamilyRelationshipsTest {
         String paternalUncles = relationships.getPaternalUncle("Chika");
         List<String> paternalUnclesList = Arrays.asList(paternalUncles.split("\\s+"));
 
-        assertTrue(paternalUnclesList.contains("Chit"));
-        assertTrue(paternalUnclesList.contains("Ish"));
-        assertTrue(paternalUnclesList.contains("Aras"));
+        assertEquals(paternalUnclesList.get(0), "Chit");
+        assertEquals(paternalUnclesList.get(1), "Ish");
+        assertEquals(paternalUnclesList.get(2), "Aras");
         assertEquals(3, paternalUnclesList.size());
     }
 
@@ -160,10 +160,10 @@ public class FamilyRelationshipsTest {
         String maternalUncles = relationships.getMaternalUncle("Atya");
         List<String> maternalUnclesList = Arrays.asList(maternalUncles.split("\\s+"));
 
-        assertTrue(maternalUnclesList.contains("Chit"));
-        assertTrue(maternalUnclesList.contains("Ish"));
-        assertTrue(maternalUnclesList.contains("Vich"));
-        assertTrue(maternalUnclesList.contains("Aras"));
+        assertEquals(maternalUnclesList.get(0), "Chit");
+        assertEquals(maternalUnclesList.get(1), "Ish");
+        assertEquals(maternalUnclesList.get(2), "Vich");
+        assertEquals(maternalUnclesList.get(3), "Aras");
         assertEquals(4, maternalUnclesList.size());
     }
 
@@ -186,7 +186,7 @@ public class FamilyRelationshipsTest {
         String paternalAunts = relationships.getPaternalAunt("Kriya");
         List<String> paternalAuntsList = Arrays.asList(paternalAunts.split("\\s+"));
 
-        assertTrue(paternalAuntsList.contains("Atya"));
+        assertEquals(paternalAuntsList.get(0), "Atya");
         assertEquals(1, paternalAuntsList.size());
     }
 
@@ -209,7 +209,7 @@ public class FamilyRelationshipsTest {
         String maternalAunts = relationships.getMaternalAunt("Yodhan");
         List<String> maternalAuntsList = Arrays.asList(maternalAunts.split("\\s+"));
 
-        assertTrue(maternalAuntsList.contains("Tritha"));
+        assertEquals(maternalAuntsList.get(0),"Tritha");
         assertEquals(1, maternalAuntsList.size());
     }
 
@@ -232,7 +232,7 @@ public class FamilyRelationshipsTest {
         String sisterInLaw = relationships.getSisterInLaw("Jaya");
         List<String> sisterInLawsList = Arrays.asList(sisterInLaw.split("\\s+"));
 
-        assertTrue(sisterInLawsList.contains("Tritha"));
+        assertEquals(sisterInLawsList.get(0), "Tritha");
         assertEquals(1, sisterInLawsList.size());
     }
 
@@ -241,9 +241,9 @@ public class FamilyRelationshipsTest {
         String sisterInLaw = relationships.getSisterInLaw("Satya");
         List<String> sisterInLawsList = Arrays.asList(sisterInLaw.split("\\s+"));
 
-        assertTrue(sisterInLawsList.contains("Amba"));
-        assertTrue(sisterInLawsList.contains("Lika"));
-        assertTrue(sisterInLawsList.contains("Chitra"));
+        assertEquals(sisterInLawsList.get(0), "Amba");
+        assertEquals(sisterInLawsList.get(1), "Lika");
+        assertEquals(sisterInLawsList.get(2), "Chitra");
         assertEquals(3, sisterInLawsList.size());
     }
 
@@ -266,10 +266,10 @@ public class FamilyRelationshipsTest {
         String brotherInLaw = relationships.getBrotherInLaw("Vyan");
         List<String> brotherInLawsList = Arrays.asList(brotherInLaw.split("\\s+"));
 
-        assertTrue(brotherInLawsList.contains("Chit"));
-        assertTrue(brotherInLawsList.contains("Ish"));
-        assertTrue(brotherInLawsList.contains("Vich"));
-        assertTrue(brotherInLawsList.contains("Aras"));
+        assertEquals(brotherInLawsList.get(0), "Chit");
+        assertEquals(brotherInLawsList.get(1), "Ish");
+        assertEquals(brotherInLawsList.get(2), "Vich");
+        assertEquals(brotherInLawsList.get(3), "Aras");
         assertEquals(4, brotherInLawsList.size());
     }
 
@@ -278,7 +278,7 @@ public class FamilyRelationshipsTest {
         String brotherInLaw = relationships.getBrotherInLaw("Tritha");
         List<String> brotherInLawsList = Arrays.asList(brotherInLaw.split("\\s+"));
 
-        assertTrue(brotherInLawsList.contains("Jaya"));
+        assertEquals(brotherInLawsList.get(0), "Jaya");
         assertEquals(1, brotherInLawsList.size());
     }
 

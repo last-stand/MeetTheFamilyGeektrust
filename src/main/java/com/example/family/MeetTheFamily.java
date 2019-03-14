@@ -2,13 +2,13 @@ package com.example.family;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Scanner;
 
 public class MeetTheFamily {
 
     public static void main(String[] args) {
-        HashMap<String, Member> familyMembers =  PopulateFamily.populateFamily();
+        LinkedHashMap<String, Member> familyMembers =  PopulateFamily.populateFamily();
         Family royalFamily = new Family(familyMembers);
         FunctionHandler functionHandler = new FunctionHandler(royalFamily);
         try {

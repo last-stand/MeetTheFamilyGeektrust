@@ -9,7 +9,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class FunctionHandlerTest {
 
@@ -57,8 +56,8 @@ public class FunctionHandlerTest {
         functionHandler.execute(input);
 
         List<String> siblings = Arrays.asList(outContent.toString().split("\\s+"));
-        assertTrue(siblings.contains("Asva"));
-        assertTrue(siblings.contains("Vyas"));
+        assertEquals(siblings.get(0), "Asva");
+        assertEquals(siblings.get(1), "Vyas");
     }
 
     @Test
@@ -95,10 +94,10 @@ public class FunctionHandlerTest {
         functionHandler.execute(input);
 
         List<String> siblings = Arrays.asList(outContent.toString().split("\\s+"));
-        assertTrue(siblings.contains("Vich"));
-        assertTrue(siblings.contains("Aras"));
-        assertTrue(siblings.contains("Satya"));
-        assertTrue(siblings.contains("Ish"));
+        assertEquals(siblings.get(0), "Ish");
+        assertEquals(siblings.get(1), "Vich");
+        assertEquals(siblings.get(2), "Aras");
+        assertEquals(siblings.get(3), "Satya");
     }
 
     @Test
@@ -189,9 +188,9 @@ public class FunctionHandlerTest {
         functionHandler.execute(input);
 
         List<String> sisterInLaws = Arrays.asList(outContent.toString().split("\\s+"));
-        assertTrue(sisterInLaws.contains("Lika"));
-        assertTrue(sisterInLaws.contains("Chitra"));
-        assertTrue(sisterInLaws.contains("Amba"));
+        assertEquals(sisterInLaws.get(0), "Amba");
+        assertEquals(sisterInLaws.get(1), "Lika");
+        assertEquals(sisterInLaws.get(2), "Chitra");
     }
 
     @Test

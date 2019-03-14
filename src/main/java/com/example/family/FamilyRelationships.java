@@ -2,7 +2,7 @@ package com.example.family;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
+import java.util.LinkedHashSet;
 
 public class FamilyRelationships {
 
@@ -74,7 +74,7 @@ public class FamilyRelationships {
         if(!isMemberExist(member))
             return PERSON_NOT_FOUND;
         StringBuilder sb = new StringBuilder();
-        Set<Member> siblings = member.getMother().getChildren();
+        LinkedHashSet<Member> siblings = member.getMother().getChildren();
         for (Member sibling: siblings) {
                 sb.append(sibling.getName() + " ");
         }

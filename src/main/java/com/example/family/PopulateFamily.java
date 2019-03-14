@@ -1,11 +1,11 @@
 package com.example.family;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class PopulateFamily {
 
-    public static HashMap<String, Member> populateFamily() {
-        HashMap<String, Member> familyMembers =  new HashMap<>();
+    public static LinkedHashMap<String, Member> populateFamily() {
+        LinkedHashMap<String, Member> familyMembers =  new LinkedHashMap<>();
 
         Member shan = new Member("King Shan", Gender.MALE);
         Member anga = new Member("Queen Anga", Gender.FEMALE);

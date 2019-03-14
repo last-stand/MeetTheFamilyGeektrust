@@ -9,7 +9,6 @@ import static org.junit.Assert.assertTrue;
 
 public class MemberTest {
 
-
     @Test
     public void setSpouseShouldSetMemberAsSpouseOfEachOther() {
         Member chit = new Member("Chit", Gender.MALE);

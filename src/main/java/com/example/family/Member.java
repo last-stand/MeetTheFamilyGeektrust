@@ -1,7 +1,6 @@
 package com.example.family;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.LinkedHashSet;
 
 public class Member {
     public static final String CHILD_NOT_ADDED = "CHILD_ADDITION_FAILED";
@@ -11,7 +10,7 @@ public class Member {
     private Member mother;
     private Member father;
     private Member spouse;
-    private Set<Member> children = new HashSet<>();
+    private LinkedHashSet<Member> children = new LinkedHashSet<>();
 
     private Member(String name) {
         this.name = name;
@@ -63,7 +62,7 @@ public class Member {
         }
     }
 
-    public Set<Member> getChildren() {
+    public LinkedHashSet<Member> getChildren() {
         return children;
     }
 }
