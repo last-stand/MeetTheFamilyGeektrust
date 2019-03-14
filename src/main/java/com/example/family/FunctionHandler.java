@@ -15,7 +15,7 @@ public class FunctionHandler {
         if (inputArray[0].equals("ADD_CHILD")){
             family.addChildToFamily(inputArray[1], inputArray[2], Gender.valueOf(inputArray[3].toUpperCase()));
         }
-        if (inputArray[0].equals("GET_RELATIONSHIP")){
+        else if (inputArray[0].equals("GET_RELATIONSHIP")){
             switch (inputArray[2]){
                 case "Son":
                     System.out.println(familyRelationships.getSon(inputArray[1]));
