@@ -1,11 +1,10 @@
 package com.example.family;
-
-import java.util.LinkedHashMap;
+import java.util.TreeMap;
 
 public class PopulateFamily {
 
-    public static LinkedHashMap<String, Member> populateFamily() {
-        LinkedHashMap<String, Member> familyMembers =  new LinkedHashMap<>();
+    public static TreeMap<String, Member> populateFamily() {
+        TreeMap<String, Member> familyTree =  new TreeMap<>();
 
         Member shan = new Member("King Shan", Gender.MALE);
         Member anga = new Member("Queen Anga", Gender.FEMALE);
@@ -39,37 +38,37 @@ public class PopulateFamily {
         Member kriya = new Member("Kriya", Gender.MALE);
         Member krithi = new Member("Krithi", Gender.FEMALE);
 
-        familyMembers.put("King Shan", shan);
-        familyMembers.put("Queen Anga", anga);
-        familyMembers.put("Chit", chit);
-        familyMembers.put("Ish", ish);
-        familyMembers.put("Vich", vich);
-        familyMembers.put("Aras", aras);
-        familyMembers.put("Satya", satya);
-        familyMembers.put("Amba", amba);
-        familyMembers.put("Dritha", dritha);
-        familyMembers.put("Tritha", tritha);
-        familyMembers.put("Vritha", vritha);
-        familyMembers.put("Jaya", jaya);
-        familyMembers.put("Yodhan", yodhan);
-        familyMembers.put("Lika", lika);
-        familyMembers.put("Vila", vila);
-        familyMembers.put("Chika", chika);
-        familyMembers.put("Chitra", chitra);
-        familyMembers.put("Jnki", jnki);
-        familyMembers.put("Ahit", ahit);
-        familyMembers.put("Arit", arit);
-        familyMembers.put("Laki", laki);
-        familyMembers.put("Lavnya", lavnya);
-        familyMembers.put("Vyan", vyan);
-        familyMembers.put("Asva", asva);
-        familyMembers.put("Vyas", vyas);
-        familyMembers.put("Atya", atya);
-        familyMembers.put("Satvy", satvy);
-        familyMembers.put("Vasa", vasa);
-        familyMembers.put("Krpi", krpi);
-        familyMembers.put("Kriya", kriya);
-        familyMembers.put("Krithi", krithi);
+        familyTree.put("King Shan", shan);
+        familyTree.put("Queen Anga", anga);
+        familyTree.put("Chit", chit);
+        familyTree.put("Ish", ish);
+        familyTree.put("Vich", vich);
+        familyTree.put("Aras", aras);
+        familyTree.put("Satya", satya);
+        familyTree.put("Amba", amba);
+        familyTree.put("Dritha", dritha);
+        familyTree.put("Tritha", tritha);
+        familyTree.put("Vritha", vritha);
+        familyTree.put("Jaya", jaya);
+        familyTree.put("Yodhan", yodhan);
+        familyTree.put("Lika", lika);
+        familyTree.put("Vila", vila);
+        familyTree.put("Chika", chika);
+        familyTree.put("Chitra", chitra);
+        familyTree.put("Jnki", jnki);
+        familyTree.put("Ahit", ahit);
+        familyTree.put("Arit", arit);
+        familyTree.put("Laki", laki);
+        familyTree.put("Lavnya", lavnya);
+        familyTree.put("Vyan", vyan);
+        familyTree.put("Asva", asva);
+        familyTree.put("Vyas", vyas);
+        familyTree.put("Atya", atya);
+        familyTree.put("Satvy", satvy);
+        familyTree.put("Vasa", vasa);
+        familyTree.put("Krpi", krpi);
+        familyTree.put("Kriya", kriya);
+        familyTree.put("Krithi", krithi);
 
 
         shan.setSpouse(anga);
@@ -108,6 +107,6 @@ public class PopulateFamily {
         krpi.addChild(kriya);
         krpi.addChild(krithi);
 
-        return familyMembers;
+        return familyTree;
     }
 }

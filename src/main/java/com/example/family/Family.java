@@ -1,14 +1,13 @@
 package com.example.family;
-
-import java.util.LinkedHashMap;
+import java.util.TreeMap;
 
 public class Family {
 
-    private static String PERSON_NOT_FOUND = "PERSON_NOT_FOUND";
+    private static final String PERSON_NOT_FOUND = "PERSON_NOT_FOUND";
     private static final String CHILD_ADDED = "CHILD_ADDITION_SUCCEEDED";
-    private LinkedHashMap<String, Member> familyMembers;
+    private TreeMap<String, Member> familyMembers;
 
-    public Family(LinkedHashMap<String, Member> familyMembers) {
+    public Family(TreeMap<String, Member> familyMembers) {
         this.familyMembers = familyMembers;
     }
 

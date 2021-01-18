@@ -3,17 +3,16 @@ package com.example.family;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.TreeMap;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class FamilyRelationshipsTest {
 
-    private LinkedHashMap<String, Member> familyMembers =  PopulateFamily.populateFamily();
+    private final TreeMap<String, Member> familyMembers =  PopulateFamily.populateFamily();
     Family family = new Family(familyMembers);
-    private  FamilyRelationships relationships = new FamilyRelationships(family);
+    private final FamilyRelationships relationships = new FamilyRelationships(family);
 
     @Test
     public void getMotherSholudReturnMotherName() {
@@ -71,7 +70,7 @@ public class FamilyRelationshipsTest {
     public void getSonShouldReturnNoneIfNoSonsPresent() {
         String sons = relationships.getSon("Lika");
 
-        assertTrue(sons.equals("NONE"));
+        assertEquals("NONE", sons);
     }
 
     @Test
@@ -95,7 +94,7 @@ public class FamilyRelationshipsTest {
     public void getDaughterShouldRetuenNoneIfNoDaughtersPresent() {
         String daughters = relationships.getDaughter("Ish");
 
-        assertTrue(daughters.equals("NONE"));
+        assertEquals("NONE", daughters);
     }
 
     @Test

@@ -12,8 +12,8 @@ import static org.junit.Assert.assertEquals;
 
 public class FunctionHandlerTest {
 
-    private Family family = new Family(PopulateFamily.populateFamily());
-    private FunctionHandler functionHandler = new FunctionHandler(family);
+    private final Family family = new Family(PopulateFamily.populateFamily());
+    private final FunctionHandler functionHandler = new FunctionHandler(family);
     ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Before

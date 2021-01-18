@@ -5,7 +5,7 @@ import java.util.LinkedHashSet;
 public class Member {
     public static final String CHILD_NOT_ADDED = "CHILD_ADDITION_FAILED";
     private static Member unknown = new Member("Unknown");
-    private String name;
+    private final String name;
     private Gender gender;
     private Member mother;
     private Member father;

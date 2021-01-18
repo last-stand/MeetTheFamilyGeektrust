@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.LinkedHashMap;
+import java.util.TreeMap;
 
 import static org.junit.Assert.assertEquals;
 
@@ -17,7 +17,7 @@ public class FamilyTest {
         Member chitra = new Member("Chitra", Gender.FEMALE);
         Member aras = new Member("Aras", Gender.MALE);
         chitra.setSpouse(aras);
-        LinkedHashMap<String, Member> familyMembers = new LinkedHashMap<>();
+        TreeMap<String, Member> familyMembers = new TreeMap<>();
         familyMembers.put("Chitra", chitra);
         familyMembers.put("Aras", aras);
         family = new Family(familyMembers);
@@ -35,7 +35,7 @@ public class FamilyTest {
         Member chitra = new Member("Chitra", Gender.FEMALE);
         Member aras = new Member("Aras", Gender.MALE);
         chitra.setSpouse(aras);
-        LinkedHashMap<String, Member> familyMembers = new LinkedHashMap<>();
+        TreeMap<String, Member> familyMembers = new TreeMap<>();
         familyMembers.put("Chitra", chitra);
         familyMembers.put("Aras", aras);
         family = new Family(familyMembers);
@@ -53,7 +53,7 @@ public class FamilyTest {
         Member chitra = new Member("Chitra", Gender.FEMALE);
         Member aras = new Member("Aras", Gender.MALE);
         chitra.setSpouse(aras);
-        LinkedHashMap<String, Member> familyMembers = new LinkedHashMap<>();
+        TreeMap<String, Member> familyMembers = new TreeMap<>();
         familyMembers.put("Chitra", chitra);
         familyMembers.put("Aras", aras);
         family = new Family(familyMembers);
